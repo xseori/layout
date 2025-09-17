@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layouts</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: space-around;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: linear-gradient(135deg, #f8e1f4, #e1f0ff, #f3e1ff);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .layout {
+      border: 2px solid #444;
+      padding: 5px;
+      width: 280px;
+      height: 330px;
+      display: grid;
+      gap: 5px;
+      background: white;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      font-size: 14px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+    }
+
+    /* Layout 1 */
+    .layout1 {
+      grid-template-rows: 50px 30px auto 40px;
+      grid-template-columns: 80px auto;
+      grid-template-areas:
+        "header header"
+        "sidebar topbox"
+        "sidebar content"
+        "footer footer";
+    }
+
+    .layout1 .header { grid-area: header; background: #7e57c2; } /* Purple */
+    .layout1 .sidebar { grid-area: sidebar; background: #ec407a; } /* Pink */
+    .layout1 .topbox { grid-area: topbox; background: #42a5f5; } /* Blue */
+    .layout1 .content { grid-area: content; background: #5c6bc0; } /* Indigo */
+    .layout1 .footer { grid-area: footer; background: #ab47bc; } /* Purple-Pink */
+
+    /* Layout 2 */
+    .layout2 {
+      grid-template-rows: 50px auto 40px;
+      grid-template-columns: auto auto 70px;
+      grid-template-areas:
+        "header header sidebar"
+        "col1 col2 sidebar"
+        "footer footer footer";
+    }
+
+    .layout2 .header { grid-area: header; background: #8e24aa; } /* Deep Purple */
+    .layout2 .col1 { grid-area: col1; background: #64b5f6; } /* Light Blue */
+    .layout2 .col2 { grid-area: col2; background: #ba68c8; } /* Light Purple */
+    .layout2 .sidebar { grid-area: sidebar; background: #f06292; } /* Pink */
+    .layout2 .footer { grid-area: footer; background: #9575cd; } /* Muted Purple */
+
+    /* Layout 3 */
+    .layout3 {
+      grid-template-rows: 40px 30px auto 40px;
+      grid-template-columns: 40px auto auto 40px;
+      grid-template-areas:
+        "c1 header header header"
+        "topbox topbox topbox topbox"
+        "left right right right"
+        "footer footer footer c2";
+    }
+
+    .layout3 .c1 {
+      grid-area: c1;
+      border-radius: 50%;
+      background: #f48fb1; /* Pastel Pink */
+    }
+    .layout3 .header { grid-area: header; background: #7b1fa2; } /* Purple */
+    .layout3 .topbox { grid-area: topbox; background: #42a5f5; } /* Blue */
+    .layout3 .left { grid-area: left; background: #ce93d8; } /* Lavender */
+    .layout3 .right { grid-area: right; background: #5c6bc0; } /* Indigo Blue */
+    .layout3 .footer { grid-area: footer; background: #ab47bc; } /* Purple Pink */
+    .layout3 .c2 {
+      grid-area: c2;
+      border-radius: 50%;
+      background: #64b5f6; /* Light Blue */
+    }
+  </style>
+</head>
+<body>
+  <!-- Layout 1 -->
+  <div>
+    <h2>Layout 1</h2>
+    <div class="layout layout1">
+      <div class="box header">Header</div>
+      <div class="box sidebar">Sidebar</div>
+      <div class="box topbox">Topbox</div>
+      <div class="box content">Content</div>
+      <div class="box footer">Footer</div>
+    </div>
+  </div>
+
+  <!-- Layout 2 -->
+  <div>
+    <h2>Layout 2</h2>
+    <div class="layout layout2">
+      <div class="box header">Header</div>
+      <div class="box col1">Column 1</div>
+      <div class="box col2">Column 2</div>
+      <div class="box sidebar">Sidebar</div>
+      <div class="box footer">Footer</div>
+    </div>
+  </div>
+
+  <!-- Layout 3 -->
+  <div>
+    <h2>Layout 3</h2>
+    <div class="layout layout3">
+      <div class="box c1">C1</div>
+      <div class="box header">Header</div>
+      <div class="box topbox">Topbox</div>
+      <div class="box left">Left</div>
+      <div class="box right">Right</div>
+      <div class="box footer">Footer</div>
+      <div class="box c2">C2</div>
+    </div>
+  </div>
+</body>
+</html>
